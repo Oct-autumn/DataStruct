@@ -1,5 +1,5 @@
 ﻿  ULLL.cpp
-D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(15,2): warning C4091: “typedef ”: 没有声明变量时忽略“DataSpace”的左侧
-D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(26,2): warning C4091: “typedef ”: 没有声明变量时忽略“SinglyNode”的左侧
-D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(190,2): warning C4091: “typedef ”: 没有声明变量时忽略“DoublyNode”的左侧
+D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(18,2): warning C4091: “typedef ”: 没有声明变量时忽略“DataSpace”的左侧
+D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(29,2): warning C4091: “typedef ”: 没有声明变量时忽略“SinglyNode”的左侧
+D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\ULLL.h(193,2): warning C4091: “typedef ”: 没有声明变量时忽略“DoublyNode”的左侧
   ULLL.vcxproj -> D:\MyDocuments\GitHub\DataStruct\Section2\ULLL\Debug\ULLL.exe

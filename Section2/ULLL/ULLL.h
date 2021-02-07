@@ -219,3 +219,128 @@ void DeleteNode(DoublyNode* NodeToDelete)	//该函数将删除NodeToDelete节点
 
 	free(NextNode);
 }
+
+void SinglyListSort(DoublyNode* Start, int count, int SortOrder)
+{//归并排序，使用递归结构
+	if (!count || count == 1) return;
+
+	int Count1 = count / 2;
+	int Count2 = count - Count1;
+
+	DoublyNode* Start1 = Start;
+	DoublyNode* Start2 = Start1;
+	for (int i = 0; i < Count1; i++)
+	{
+		Start2 = Start2->next;
+	}
+
+	SinglyListSort(Start1, Count1, SortOrder);
+	SinglyListSort(Start2, Count2, SortOrder);
+
+	DoublyNode* Head = NULL;
+	DoublyNode* NowNode = NULL;
+
+	if (SortOrder == MAXtoMIN)
+	{//降序
+		DataSpace* Buffer = (DataSpace*)malloc(sizeof(DataSpace));
+
+		while (Count1 && Count2)
+		{
+
+
+			if (KEY_NUM(Start1) > KEY_NUM(Start2))
+			{
+				*Buffer = Start1->Data;
+				NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+				Start1 = Start1->next;
+				Count1--;
+			}
+			else
+			{
+				*Buffer = Start2->Data;
+				NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+				Start2 = Start2->next;
+				Count2--;
+			}
+			if (!Head) Head = NowNode;
+		}
+
+		while (Count1)
+		{
+			*Buffer = Start1->Data;
+			NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+			Start1 = Start1->next;
+			Count1--;
+		}
+		while (Count2)
+		{
+			*Buffer = Start2->Data;
+			NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+			Start2 = Start2->next;
+			Count2--;
+		}
+
+		DoublyNode* NowNode_S = Start;
+		NowNode = Head;
+		for (int i = 0; i < count; i++)
+		{
+			NowNode_S->Data = NowNode->Data;
+			NowNode_S = NowNode_S->next;
+			NowNode = NowNode->next;
+		}
+
+		free(Buffer);
+	}
+	else
+	{//升序
+		DataSpace* Buffer = (DataSpace*)malloc(sizeof(DataSpace));
+
+		while (Count1 && Count2)
+		{
+
+
+			if (KEY_NUM(Start1) < KEY_NUM(Start2))
+			{
+				*Buffer = Start1->Data;
+				NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+				Start1 = Start1->next;
+				Count1--;
+			}
+			else
+			{
+				*Buffer = Start2->Data;
+				NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+				Start2 = Start2->next;
+				Count2--;
+			}
+			if (!Head) Head = NowNode;
+		}
+
+		while (Count1)
+		{
+			*Buffer = Start1->Data;
+			NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+			Start1 = Start1->next;
+			Count1--;
+		}
+		while (Count2)
+		{
+			*Buffer = Start2->Data;
+			NowNode = NewNode_Doubly(*Buffer, NowNode, NULL);
+			Start2 = Start2->next;
+			Count2--;
+		}
+
+		DoublyNode* NowNode_S = Start;
+		NowNode = Head;
+		for (int i = 0; i < count; i++)
+		{
+			NowNode_S->Data = NowNode->Data;
+			NowNode_S = NowNode_S->next;
+			NowNode = NowNode->next;
+		}
+
+		free(Buffer);
+	}
+
+}
